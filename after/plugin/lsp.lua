@@ -19,7 +19,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 
 lsp.set_preferences({
-	sign_icons = {}
+    sign_icons = {
+        error = 'E',
+        warn = 'W',
+        hint = 'H',
+        info = 'I'
+    }
 })
 
 lsp.setup_nvim_cmp({
