@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
 	  end
   }
 
-
   use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = ':TSUpdate'
@@ -58,4 +57,12 @@ return require('packer').startup(function(use)
   }
 
   use 'christoomey/vim-tmux-navigator'
+
+  use 'tpope/vim-surround'
+  use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
+
+  use 'junegunn/vim-peekaboo'
 end)
