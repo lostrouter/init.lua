@@ -2,15 +2,15 @@ vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_disable_when_zoomed = 1
 
 -- easier split nav
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { noremap = true })
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { noremap = true })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { noremap = true })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { noremap = true })
 
 -- nav to tmux panes
-vim.keymap.set("n", "<silent> <C-h>", vim.cmd.TmuxNavigatorLeft)
-vim.keymap.set("n", "<silent> <C-j>", vim.cmd.TmuxNavigatorDown)
-vim.keymap.set("n", "<silent> <C-k>", vim.cmd.TmuxNavigatorUp)
-vim.keymap.set("n", "<silent> <C-l>", vim.cmd.TmuxNavigatorRight)
+vim.keymap.set("n", "<C-h>", vim.cmd.TmuxNavigateLeft, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", vim.cmd.TmuxNavigateDown, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", vim.cmd.TmuxNavigateUp, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", vim.cmd.TmuxNavigateRight, { noremap = true, silent = true })
 
 
