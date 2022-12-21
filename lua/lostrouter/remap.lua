@@ -19,9 +19,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- cool paste where it doesn't swap the pasted over text into the buffer
 vim.keymap.set("x", "<leader>p", "\"_dp")
 
- -- maybe this should go in the lsp after file?
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
 -- open search and replace and prepopulate with word under cursor
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
