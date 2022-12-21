@@ -12,5 +12,22 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- yank to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- cool paste where it doesn't swap the pasted over text into the buffer
 vim.keymap.set("x", "<leader>p", "\"_dp")
+
+ -- maybe this should go in the lsp after file?
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+-- open search and replace and prepopulate with word under cursor
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+-- apend line below to current line but keep cursor at 0
+vim.keymap.set("n", "J", "mzJ`z")
+
+
 
