@@ -30,5 +30,11 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
+vim.o.cursorcolumn = true
+vim.o.cursorline = true
 
 vim.g.mapleader = " "
+
+-- Open new split panes to right and bottom, which feels more natural
+vim.o.splitbelow = true
+vim.o.splitright = true
