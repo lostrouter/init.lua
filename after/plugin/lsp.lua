@@ -35,6 +35,7 @@ lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false}
 
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "g<C-d>", ":vspli | lua  vim.lsp.buf.definition()<CR>", opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -49,6 +50,60 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+
+-- https://github.com/neovim/neovim/issues/20784
+-- workaround to rename and update imports for typescript
+local function rename_file()
+    local source_file, target_file
+
+    vim.ui.input({
+        prompt = "Source : ",
+        completion = "file",
+        default = vim.api.nvim_buf_get_name(0)
+    },
+        function(input)
+            source_file = input
+        end
+    )
+    vim.ui.input({
+        prompt = "Target : ",
+        completion = "file",
+        default = source_file
+    },
+        function(input)
+            target_file = input
+        end
+    )
+
+    local params = {
+        command = "_typescript.applyRenameFile",
+        arguments = {
+            {
+                sourceUri = source_file,
+                targetUri = target_file,
+            },
+        },
+        title = ""
+    }
+
+    vim.lsp.util.rename(source_file, target_file)
+    vim.lsp.buf.execute_command(params)
+end
+
+
+-- the original gh issue had a different setup command.
+-- the ts plugin docs say to use this format instead
+require("typescript").setup({
+    server = { -- pass options to lspconfig's setup method
+        commands = {
+            RenameFile = {
+                rename_file,
+                description = "Rename File"
+            },
+        }
+    },
+})
 
 -- found on reddit. maybe make renaming a symbol/var easier?
 function LspRename()
