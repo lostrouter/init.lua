@@ -13,8 +13,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- cool paste where it doesn't swap the pasted over text into the buffer
 vim.keymap.set("x", "<leader>p", "\"_dp")
