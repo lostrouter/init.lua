@@ -72,5 +72,5 @@ return require('packer').startup(function(use)
       }
   }
   use 'jose-elias-alvarez/typescript.nvim'
-
+  use "folke/trouble.nvim"
 end)
