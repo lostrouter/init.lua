@@ -38,3 +38,4 @@ vim.g.mapleader = " "
 -- Open new split panes to right and bottom, which feels more natural
 vim.o.splitbelow = true
 vim.o.splitright = true
+

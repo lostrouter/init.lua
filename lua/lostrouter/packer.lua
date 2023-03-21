@@ -79,10 +79,17 @@ return require('packer').startup(function(use)
     use "folke/trouble.nvim"
 
     use {
-      "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = function()
-      end
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+        end
+    }
+
+    use {
+        'tanvirtin/vgit.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
 
     -- kitty plugins
