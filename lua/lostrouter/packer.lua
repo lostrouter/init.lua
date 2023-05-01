@@ -91,10 +91,4 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
-
-    -- kitty plugins
-    use {
-        'knubie/vim-kitty-navigator',
-        run = 'cp ./*.py ~/.config/kitty/'
-    }
 end)
